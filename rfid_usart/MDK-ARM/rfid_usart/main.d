@@ -33,3 +33,5 @@ rfid_usart\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rfid_usart\main.o: ../Core/Inc/spi.h
 rfid_usart\main.o: ../Core/Inc/usart.h
 rfid_usart\main.o: ../Core/Inc/gpio.h
+rfid_usart\main.o: ../Core/Inc/rc522.h
+rfid_usart\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

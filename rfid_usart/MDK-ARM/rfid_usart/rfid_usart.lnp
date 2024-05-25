@@ -6,6 +6,7 @@
 "rfid_usart\usart.o"
 "rfid_usart\stm32f4xx_it.o"
 "rfid_usart\stm32f4xx_hal_msp.o"
+"rfid_usart\rc522.o"
 "rfid_usart\stm32f4xx_hal_spi.o"
 "rfid_usart\stm32f4xx_hal_rcc.o"
 "rfid_usart\stm32f4xx_hal_rcc_ex.o"

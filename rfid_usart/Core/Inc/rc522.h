@@ -124,3 +124,4 @@ uchar MFRC522_Write(uchar blockAddr, uchar *writeData);
 uchar MFRC522_Auth(uchar authMode, uchar BlockAddr, uchar *Sectorkey, uchar *serNum);
 uchar MFRC522_Read(uchar blockAddr, uchar *recvData);
 void MFRC522_Halt(void);
+
