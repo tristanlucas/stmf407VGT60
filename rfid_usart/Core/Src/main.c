@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include "rc522.h"
 #include "string.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +47,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t txData[5];
+uint8_t status;
+uint8_t str[MAX_LEN]; // Max_LEN = 16
+//uint8_t sNum[5];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,6 +103,39 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		//status = MFRC522_Request(PICC_REQIDL, str);
+		status = MFRC522_Anticoll(str);
+		//memcpy(txData, str, 5);
+		//HAL_Delay(100);
+		
+		if (status == MI_OK) {
+    // Anti-collision succeeded, print the serial number
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+    printf("Card Serial Number: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%02X ", txData[i]);
+    }
+    printf("\n");
+} else {
+    // Anti-collision failed
+    printf("Anti-collision failed. Status: %d\n", status);
+}
+		//HAL_UART_Transmit(&huart2, txData, sizeof(txData), HAL_MAX_DELAY);
+		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+		
+//			if((str[0]==115) && (str[1]==93) && (str[2]==75) && (str[3]==22) && (str[4]==115) )
+//				{
+//					HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_RESET);
+//					HAL_Delay(100);
+//				}
+//			else if((str[0]==199) && (str[1]==102) && (str[2]==209) && (str[3]==215) && (str[4]==167) ){
+//					HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_RESET);
+//					HAL_Delay(2000);
+//				}
+//			else
+//			{
+//					HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_SET);
+//			}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -128,7 +165,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 168;
+  RCC_OscInitStruct.PLL.PLLN = 72;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -142,10 +179,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }

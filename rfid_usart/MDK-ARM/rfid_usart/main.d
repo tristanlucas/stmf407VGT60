@@ -35,3 +35,4 @@ rfid_usart\main.o: ../Core/Inc/usart.h
 rfid_usart\main.o: ../Core/Inc/gpio.h
 rfid_usart\main.o: ../Core/Inc/rc522.h
 rfid_usart\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+rfid_usart\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
