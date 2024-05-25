@@ -89,8 +89,8 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-	//uint8_t a[] = {'H','E','L','L','O'};
-	uint8_t rxData[1];
+	uint8_t rxData[] = {'H','E','L','L','O'};
+	//uint8_t rxData[1];
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -99,9 +99,9 @@ int main(void)
   {
 		//lenght = sprintf(buffer, "%d\r\n", number);
 		
-		HAL_UART_Receive(&huart2, rxData, sizeof(rxData), HAL_MAX_DELAY);
+		//HAL_UART_Receive(&huart2, rxData, sizeof(rxData), HAL_MAX_DELAY);
 		
-		HAL_UART_Transmit(&huart2, rxData, sizeof(rxData), HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, rxData, sizeof(rxData), 1000);
 		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 		
     /* USER CODE END WHILE */
