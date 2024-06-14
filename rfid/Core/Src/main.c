@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "string.h"
 #include "stm32f4_rc522.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,11 +46,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t status;
-uint8_t str[MAX_LEN]; // Max_LEN = 16
 
-
-uint8_t serNum[5];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -94,17 +91,23 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-	MFRC522_Init();
-	//MFRC522_SPI_Init();
+	//MFRC522_Init();
+	MFRC522_WriteRegister(CommandReg, PCD_RESETPHASE);
+	MFRC522_WriteRegister(TModeReg, 0x8D);
+  MFRC522_WriteRegister(TPrescalerReg, 0x3E);
+  MFRC522_WriteRegister(TReloadRegL, 30);
+  MFRC522_WriteRegister(TReloadRegH, 0);
+  MFRC522_WriteRegister(TxASKReg, 0x40);
+  MFRC522_WriteRegister(ModeReg, 0x3D);
+  MFRC522_AntennaOn();
+	MFRC522_CheckVersion();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		status = MFRC522_Request(PICC_REQIDL, str);	//MFRC522_Request(0x26, str)
-		status = MFRC522_Anticoll(str);//Take a collision, look up 5 bytes
-		memcpy(serNum, str, 5);//function for c language:(para1:that place save data,para2:the the source of data,para3:size)
+		
 		
 			
     /* USER CODE END WHILE */
