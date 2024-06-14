@@ -36,6 +36,7 @@ uint8_t MFRC522_CheckVersion(void) {
 
 void MFRC522_SPI_Transmit(uint8_t* data, uint16_t size) {
     HAL_SPI_Transmit(&hspi1, data, size, HAL_MAX_DELAY);
+	  HAL_SPI_Transmit_IT();
 }
 
 void MFRC522_SPI_Receive(uint8_t* data, uint16_t size) {
