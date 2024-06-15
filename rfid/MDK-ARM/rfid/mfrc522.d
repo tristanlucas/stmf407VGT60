@@ -1,5 +1,4 @@
-rfid/stm32f4_rc522.o: ..\Core\Src\stm32f4_rc522.c \
-  ..\Core\Inc\stm32f4_rc522.h \
+rfid/mfrc522.o: ..\Core\Src\MFRC522.c ..\Core\Inc\MFRC522.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -21,5 +20,4 @@ rfid/stm32f4_rc522.o: ..\Core\Src\stm32f4_rc522.c \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_flash_ramfunc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h \
-  ..\Core\Inc\main.h
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h

@@ -24,8 +24,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "string.h"
-#include "stm32f4_rc522.h"
 #include "stdio.h"
+#include "MFRC522.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,15 +92,13 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 	//MFRC522_Init();
-	MFRC522_WriteRegister(CommandReg, PCD_RESETPHASE);
-	MFRC522_WriteRegister(TModeReg, 0x8D);
-  MFRC522_WriteRegister(TPrescalerReg, 0x3E);
-  MFRC522_WriteRegister(TReloadRegL, 30);
-  MFRC522_WriteRegister(TReloadRegH, 0);
-  MFRC522_WriteRegister(TxASKReg, 0x40);
-  MFRC522_WriteRegister(ModeReg, 0x3D);
-  MFRC522_AntennaOn();
-	MFRC522_CheckVersion();
+	MFRC522_WriteRegister(0x01, 0x0F); //Soft Reset
+	MFRC522_WriteRegister(TModeReg, 0x8D);		//auto=1; f(Timer) = 6.78MHz/TPreScaler
+	MFRC522_WriteRegister(TPrescalerReg, 0x3E);	//TModeReg[3..0] + TPrescalerReg
+	MFRC522_WriteRegister(TReloadRegL, 30);           
+	MFRC522_WriteRegister(TReloadRegH, 0);
+	MFRC522_WriteRegister(TxAutoReg, 0x40);		//100%ASK
+	MFRC522_WriteRegister(ModeReg, 0x3D);
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -1,6 +1,6 @@
 --cpu=Cortex-M4.fp.sp
 "rfid\startup_stm32f407xx.o"
-"rfid\stm32f4_rc522.o"
+"rfid\mfrc522.o"
 "rfid\main.o"
 "rfid\gpio.o"
 "rfid\spi.o"

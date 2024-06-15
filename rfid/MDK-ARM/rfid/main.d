@@ -21,4 +21,4 @@ rfid/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h \
-  ..\Core\Inc\spi.h ..\Core\Inc\gpio.h ..\Core\Inc\stm32f4_rc522.h
+  ..\Core\Inc\spi.h ..\Core\Inc\gpio.h ..\Core\Inc\MFRC522.h
