@@ -1,0 +1,5 @@
+C:/Users/db/Desktop/stmf407VGT60/rfid/Core/Src/main.c:71:5:main	1
+C:/Users/db/Desktop/stmf407VGT60/rfid/Core/Src/main.c:122:6:SystemClock_Config	3
+C:/Users/db/Desktop/stmf407VGT60/rfid/Core/Src/main.c:168:13:MX_SPI1_Init	2
+C:/Users/db/Desktop/stmf407VGT60/rfid/Core/Src/main.c:206:13:MX_GPIO_Init	1
+C:/Users/db/Desktop/stmf407VGT60/rfid/Core/Src/main.c:260:6:Error_Handler	1

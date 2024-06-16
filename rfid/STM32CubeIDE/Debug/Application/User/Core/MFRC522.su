@@ -1,0 +1,10 @@
+../Application/User/Core/MFRC522.c:8:6:RC522_SPI_Transfer	16	static
+../Application/User/Core/MFRC522.c:23:6:Write_MFRC522	16	static
+../Application/User/Core/MFRC522.c:31:9:Read_MFRC522	32	static
+../Application/User/Core/MFRC522.c:50:6:SetBitMask	24	static
+../Application/User/Core/MFRC522.c:57:6:AntennaOn	8	static
+../Application/User/Core/MFRC522.c:68:6:MFRC522_Init	8	static
+../Application/User/Core/MFRC522.c:90:6:ClearBitMask	24	static
+../Application/User/Core/MFRC522.c:97:9:MFRC522_ToCard	48	static
+../Application/User/Core/MFRC522.c:209:9:MFRC522_Request	32	static
+../Application/User/Core/MFRC522.c:227:9:MFRC522_Anticoll	32	static
