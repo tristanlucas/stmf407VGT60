@@ -61,6 +61,10 @@ void Error_Handler(void);
 #define SDA_GPIO_Port GPIOA
 #define RST_Pin GPIO_PIN_3
 #define RST_GPIO_Port GPIOA
+#define LED13_Pin GPIO_PIN_13
+#define LED13_GPIO_Port GPIOD
+#define LED15_Pin GPIO_PIN_15
+#define LED15_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 

@@ -98,7 +98,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  HAL_GPIO_WritePin(GPIOD, LED13_Pin, GPIO_PIN_RESET);
+	  //HAL_GPIO_WritePin(GPIOD, LED13_Pin, GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOD, LED13_Pin, GPIO_PIN_SET);
+	  //HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOD, LED15_Pin, GPIO_PIN_SET);
+	  //HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
